@@ -94,3 +94,15 @@ class LoginPage:
         except TimeoutException as e:
             print(f"Erro ao validar a mensagem de erro: {e}")
             return None
+
+    def click_play_as_guest_button(self):
+        play_as_guest_button = (By.ID, "com.chess:id/playAsGuest")
+        try:
+            self.take_screenshot("2.1_when", "click_email", "verificar_texto")
+            elemento_play_as_guest = self.wait.until(EC.element_to_be_clickable(play_as_guest_button))
+            elemento_play_as_guest.click()
+            self.take_screenshot("2.2_when", "click_email", "verificar_texto")
+        except TimeoutException as te:
+            print(f"TimeoutException ao clicar no botão de e-mail: {te}")
+        except Exception as e:
+            print(f"Erro ao clicar no botão de e-mail: {e}")
