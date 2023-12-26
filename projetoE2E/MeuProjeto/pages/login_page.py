@@ -106,3 +106,41 @@ class LoginPage:
             print(f"TimeoutException ao clicar no botão de e-mail: {te}")
         except Exception as e:
             print(f"Erro ao clicar no botão de e-mail: {e}")
+
+    def click_puzzles(self):
+            puzzles_button = (By.XPATH, "(//android.widget.ImageView[@resource-id='com.chess:id/navigation_bar_item_icon_view'])[2]")
+            try:
+                elemento_puzzles = self.wait.until(EC.element_to_be_clickable(puzzles_button))
+                time.sleep(2)
+                self.take_screenshot("1_given", "open_app", "Evidencia")
+                elemento_puzzles.click()
+                time.sleep(2)
+            except Exception as e:
+                print(f"Erro ao clicar no botão: {e}")
+
+
+    def clicar_botao_more(self):
+        try:
+            clicar_botao_more = (By.ID, "com.chess:id/navigation_more")
+            time.sleep(2)
+            self.take_screenshot("1_given", "open_app", "Evidencia")
+            clicar_botao_more.click()
+            time.sleep(2)
+        except Exception as e:
+            print(f"Erro ao clicar no botão: {e}")
+
+
+    def tela_puzzle(self):
+        try:
+            tela_puzzle = self.wait.until(EC.visibility_of_element_located((By.ID, "com.chess:id/recyclerView")))
+            return True
+        except TimeoutException:
+            return False
+
+    def tela_more(self):
+        try:
+            tela_more = self.wait.until(EC.visibility_of_element_located((By.ID, "com.chess:id/recyclerView")))
+            return True
+        except TimeoutException:
+            return False
+

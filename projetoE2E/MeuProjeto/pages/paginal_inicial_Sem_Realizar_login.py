@@ -45,3 +45,4 @@ class PaginaInicialSemRealizarLogin:
             return True
         except TimeoutException:
             return False
+

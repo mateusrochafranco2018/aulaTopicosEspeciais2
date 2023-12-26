@@ -25,3 +25,25 @@ def step_clicar_botão_play_as_guest(context):
 @then('o aplicativo deve redirecionar para tela com algumas opções para iniciar a partida')
 def step_botao_sing_in_visible(context):
     assert context.paginal_inicial_Sem_Realizar_login.botao_sing_in_visible(), "Botão não está visivel"
+
+@when('o usuário clicar no texto Resolva Problemas')
+def step_impl(context):
+   context.login_page.click_play_as_guest_button()
+   context.login_page.click_puzzles()
+
+
+
+@then('o aplicativo deve redirecionar para tela com o primeiro problema')
+def step_impl(context):
+    assert context.login_page.tela_puzzle(), "Tela Incorreta"
+
+
+@when('o usuário clicar no texto more')
+def step_impl(context):
+    context.login_page.click_play_as_guest_button()
+    context.login_page.clicar_botao_more()
+
+
+@then(u'o aplicativo deve redirecionar para More')
+def step_impl(context):
+    assert context.login_page.tela_more(), "Tela Incorreta"
