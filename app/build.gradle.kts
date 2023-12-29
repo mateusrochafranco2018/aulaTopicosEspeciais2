@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.aulatopicosespeciais2"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.aulatopicosespeciais2"
@@ -30,6 +30,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
